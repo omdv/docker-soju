@@ -3,6 +3,7 @@
 [![Build](https://github.com/fourstepper/docker-soju/actions/workflows/build.yml/badge.svg)](https://github.com/fourstepper/docker-soju/actions/workflows/build.yml)
 
 soju is an IRC bouncer - https://git.sr.ht/~emersion/soju
+Repo is a fork of https://github.com/fourstepper/docker-soju
 
 ## Supported soju versions
 v0.5.2

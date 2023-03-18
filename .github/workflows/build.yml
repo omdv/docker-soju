@@ -7,7 +7,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "10 1 * * 0"
+    - cron: "42 7 15 * *"
 
 jobs:
   # Test the image builds and works correctly.
@@ -62,4 +62,4 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64
           push: true
-          tags: ${{ github.repository }}:latest,${{ github.repository }}:v0.5.2
+          tags: ${{ github.repository }}:latest
