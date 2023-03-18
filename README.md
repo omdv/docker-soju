@@ -4,6 +4,10 @@
 
 soju is an IRC bouncer - https://git.sr.ht/~emersion/soju
 
+## Supported soju versions
+v0.5.2
+
+
 ## Usage
 
 ### Environment variables
