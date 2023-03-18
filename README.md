@@ -25,7 +25,7 @@ v0.5.2
 
 **Run the image from the CLI**
 
-`docker run  -e USER='admin' -e PASSWORD='password' -e LISTEN_METHOD='irc+insecure' -e LISTEN_HOST='0.0.0.0' -e LISTEN_PORT='6667' -p 6667:6667 fourstepper/soju`
+`docker run  -e USER='admin' -e PASSWORD='password' -e LISTEN_METHOD='irc+insecure' -e LISTEN_HOST='0.0.0.0' -e LISTEN_PORT='6667' -p 6667:6667 omdv/docker-soju`
 
 
 **Run as part of docker-compose**

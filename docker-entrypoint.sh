@@ -1,6 +1,4 @@
 #!/bin/sh
-set -e
-
 BASE_PATH="/data"
 CONFIG="$BASE_PATH/soju.cfg"
 
@@ -37,21 +35,25 @@ then
     LISTEN_PORT="6667"
 fi
 
-if [ -e "$BASE_PATH/soju.db" ]
-then
-    cd $BASE_PATH && echo -n "$PASSWORD" | sojudb -config $CONFIG create-user $USER -admin
-fi
-
-
 touch $CONFIG
 echo "listen $LISTEN_METHOD://$LISTEN_HOST:$LISTEN_PORT" > $CONFIG
 echo "db sqlite3 /data/soju.db" >> $CONFIG
 echo "New config generated"
+
 if [ -z $LOG_PATH ]
 then
-    echo "LOG_PATH not specified, not adding to $CONFIG\n"
+    echo "LOG_PATH not specified, not adding to $CONFIG"
 else
     echo "log fs $LOG_PATH" >> $CONFIG
+fi
+
+# create user
+echo "Creating user $USER"
+cd $BASE_PATH && echo -n "$PASSWORD" | sojudb -config $CONFIG create-user $USER -admin
+EXITCODE=$?
+if [ "$EXITCODE" -ne "0" ]; then
+    echo "User $USER exists! Updating password..."
+    cd $BASE_PATH && echo -n "$PASSWORD" | sojudb -config $CONFIG change-password $USER
 fi
 
 cd $BASE_PATH && soju -config $CONFIG
