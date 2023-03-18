@@ -39,7 +39,7 @@ fi
 
 if [ -e "$BASE_PATH/soju.db" ]
 then
-    cd $BASE_PATH && echo -n "$PASSWORD" | sojuctl -config $CONFIG create-user $USER -admin
+    cd $BASE_PATH && echo -n "$PASSWORD" | sojudb -config $CONFIG create-user $USER -admin
 fi
 
 
