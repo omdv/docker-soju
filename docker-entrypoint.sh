@@ -42,10 +42,11 @@ then
     cd $BASE_PATH && echo -n "$PASSWORD" | sojuctl -config $CONFIG create-user $USER -admin
 fi
 
+
 touch $CONFIG
 echo "listen $LISTEN_METHOD://$LISTEN_HOST:$LISTEN_PORT" > $CONFIG
 echo "db sqlite3 /data/soju.db" >> $CONFIG
-echo "New config generated\n"
+echo "New config generated"
 if [ -z $LOG_PATH ]
 then
     echo "LOG_PATH not specified, not adding to $CONFIG\n"
